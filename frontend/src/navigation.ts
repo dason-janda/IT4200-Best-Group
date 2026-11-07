@@ -4,4 +4,5 @@ export const NAV_ITEMS = [
   { path: '/slots', label: 'Slots' },
   { path: '/blackjack', label: 'Blackjack' },
   { path: '/rocket-ride', label: 'Rocket Ride' },
+  { path: '/craps', label: 'Craps' },
 ] as const
