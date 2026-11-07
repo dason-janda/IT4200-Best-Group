@@ -18,6 +18,18 @@ export interface MultiplierResult {
   multiplier: number
 }
 
+export interface CrapsResult {
+  "1. Dice1": number
+  "2. Dice2": number
+  "3. Total": number
+  "4. Outcome": string
+  "5. Point"?: number
+  "6. Dice3"?: number
+  "7. Dice4"?: number
+  "8. New Total"?: number
+  "9. Final Outcome"?: string
+}
+
 const API_BASE: string = import.meta.env.VITE_API_BASE ?? '/api'
 
 async function getJson<T>(path: string, params?: Record<string, string>): Promise<T> {
@@ -44,4 +56,8 @@ export function fetchRoulettePayout(color: RouletteColor, bet: number) {
 
 export function fetchMultiplier() {
   return getJson<MultiplierResult>('/multiplier')
+}
+
+export function fetchCraps() {
+  return getJson<CrapsResult>('/craps')
 }

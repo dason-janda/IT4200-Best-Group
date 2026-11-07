@@ -191,6 +191,62 @@
   justify-content: center;
 }
 
+.craps-board {
+  display: grid;
+  align-content: center;
+  gap: 24px;
+  min-height: 340px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--panel);
+  text-align: center;
+}
+
+.craps-roll-section h2 {
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.craps-dice {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.craps-die {
+  display: grid;
+  place-items: center;
+  width: 96px;
+  aspect-ratio: 1;
+  border: 2px solid var(--gold);
+  border-radius: 16px;
+  background: #f4f0e5;
+  color: #28231b;
+  font-size: 3rem;
+  font-weight: 800;
+  box-shadow: 0 5px 0 #8a6d1d;
+}
+
+.craps-total,
+.craps-point {
+  margin-top: 12px;
+  color: var(--gold-light);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.craps-outcome {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.craps-placeholder {
+  color: var(--muted);
+}
+
 .wheel-wrap {
   position: relative;
   width: min(460px, 100%);
@@ -766,6 +822,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .pocket-win,
   .tile-win,
   .flash-up,

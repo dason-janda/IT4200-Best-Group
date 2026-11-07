@@ -3,6 +3,7 @@ import { useBalance } from './balance/useBalance'
 import { Header } from './components/Header'
 import { ComingSoonPage } from './pages/ComingSoonPage'
 import { RoulettePage } from './pages/RoulettePage'
+import { CrapsPage } from './pages/CrapsPage'
 import './App.css'
 
 export default function App() {
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/slots" element={<ComingSoonPage title="Slots" />} />
         <Route path="/blackjack" element={<ComingSoonPage title="Blackjack" />} />
         <Route path="/rocket-ride" element={<ComingSoonPage title="Rocket Ride" />} />
+        <Route path="/craps" element={<CrapsPage />} />
         <Route path="*" element={<Navigate to="/roulette" replace />} />
       </Routes>
     </div>
