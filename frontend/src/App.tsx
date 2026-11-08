@@ -5,6 +5,7 @@ import { ComingSoonPage } from './pages/ComingSoonPage'
 import { RoulettePage } from './pages/RoulettePage'
 import { CrapsPage } from './pages/CrapsPage'
 import { BlackjackPage } from './pages/BlackjackPage'
+import { MicrowavePage } from './pages/MicrowavePage'
 import './App.css'
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="/rocket-ride" element={<ComingSoonPage title="Rocket Ride" />} />
         <Route path="/craps" element={<CrapsPage />} />
         <Route path="*" element={<Navigate to="/roulette" replace />} />
+        <Route path="/microwave" element={<MicrowavePage />} />
       </Routes>
     </div>
   )

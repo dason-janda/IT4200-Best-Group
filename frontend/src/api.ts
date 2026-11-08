@@ -72,3 +72,16 @@ export interface BlackjackResult {
 export function fetchBlackjack() {
   return getJson<BlackjackResult>('/blackjack')
 }
+
+export interface MicrowaveResult {
+  name: string
+  value: number
+  rarity: string
+  available: boolean
+  power_watts: number
+  warranty_months: number
+}
+
+export function fetchMicrowave() {
+  return getJson<MicrowaveResult>('/microwave')
+}
