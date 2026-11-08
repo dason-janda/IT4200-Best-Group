@@ -4,6 +4,7 @@ import { Header } from './components/Header'
 import { ComingSoonPage } from './pages/ComingSoonPage'
 import { RoulettePage } from './pages/RoulettePage'
 import { CrapsPage } from './pages/CrapsPage'
+import { BlackjackPage } from './pages/BlackjackPage'
 import './App.css'
 
 export default function App() {
@@ -18,7 +19,7 @@ export default function App() {
         <Route index element={<Navigate to="/roulette" replace />} />
         <Route path="/roulette" element={<RoulettePage />} />
         <Route path="/slots" element={<ComingSoonPage title="Slots" />} />
-        <Route path="/blackjack" element={<ComingSoonPage title="Blackjack" />} />
+        <Route path="/blackjack" element={<BlackjackPage />} />
         <Route path="/rocket-ride" element={<ComingSoonPage title="Rocket Ride" />} />
         <Route path="/craps" element={<CrapsPage />} />
         <Route path="*" element={<Navigate to="/roulette" replace />} />

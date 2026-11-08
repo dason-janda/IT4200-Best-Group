@@ -61,3 +61,14 @@ export function fetchMultiplier() {
 export function fetchCraps() {
   return getJson<CrapsResult>('/craps')
 }
+
+export interface BlackjackResult {
+  game: string
+  cards: string[]
+  total: number
+  blackjack: boolean
+}
+
+export function fetchBlackjack() {
+  return getJson<BlackjackResult>('/blackjack')
+}
