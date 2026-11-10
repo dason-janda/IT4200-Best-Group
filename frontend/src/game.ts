@@ -2,18 +2,19 @@ import type { RouletteColor } from './api'
 
 export const STARTING_BALANCE = 100
 
-/** Same color rule as /roulette in app.py: 0 is green, even is black, odd is red. */
+// Standard roulette colors, matching /roulette in app.py.
+const RED_NUMBERS = new Set([1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36])
+
 export function colorOf(n: number): RouletteColor {
   if (n === 0) return 'green'
-  return n % 2 === 0 ? 'black' : 'red'
+  return RED_NUMBERS.has(n) ? 'red' : 'black'
 }
 
-// Pocket order around the wheel, clockwise from the top. Because the API colors
-// by parity, odds and evens are interleaved so red and black alternate like a
-// real wheel.
-const ODDS = [27, 9, 1, 33, 21, 15, 5, 29, 13, 35, 3, 19, 25, 7, 31, 11, 23, 17]
-const EVENS = [32, 4, 18, 26, 12, 8, 36, 22, 2, 14, 30, 6, 20, 28, 10, 34, 16, 24]
-export const WHEEL_ORDER: number[] = [0, ...EVENS.flatMap((even, i) => [even, ODDS[i]])]
+/** European single-zero wheel order, clockwise from the top. Red and black alternate. */
+export const WHEEL_ORDER: number[] = [
+  0, 32, 15, 19, 4, 21, 2, 25, 17, 34, 6, 27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33, 1, 20,
+  14, 31, 9, 22, 18, 29, 7, 28, 12, 35, 3, 26,
+]
 export const POCKET_ANGLE = 360 / WHEEL_ORDER.length
 
 export interface WheelSpin {

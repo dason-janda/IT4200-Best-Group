@@ -16,34 +16,32 @@ and a CS:GO-style strip scrolls until it stops on that multiplier. The
 multiplier applies to your result, so it also multiplies losses. If your balance
 drops below $1 (including going negative), it resets to $100.
 
-The wheel colors pockets the same way `/roulette` does (0 is green, even
-numbers are black, odd numbers are red), so the numbers aren't in standard
-casino order. If you leave the page mid-round, the round is still settled as
+The wheel uses the standard European number order and colors, matching
+`/roulette` (0 is green, and 1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27,
+30, 32, 34 and 36 are red). If you leave the page mid-round, the round is still settled as
 if you'd watched it finish.
 
 ## Running it
 
-1. Start the API (it listens on port 8000):
+```sh
+npm install
+npm run dev
+```
 
-   ```sh
-   cd 2026-IT4200-Fall
-   pip install -r requirements.txt
-   python app.py
-   ```
+Then open http://localhost:5173.
 
-2. Start the frontend:
+The API is hosted at https://two026-it4200-fall.onrender.com. It doesn't send
+CORS headers, so the browser can't call it directly. Instead, the dev server
+proxies `/api/*` to it (see `vite.config.ts`). To use a locally running copy of
+the API, set `API_TARGET`:
 
-   ```sh
-   cd IT4200-Best-Group/frontend
-   npm install
-   npm run dev
-   ```
+```sh
+API_TARGET=http://localhost:8000 npm run dev
+```
 
-3. Open http://localhost:5173.
-
-The dev server proxies `/api/*` to `http://localhost:8000`, because `app.py`
-doesn't send CORS headers. If the API runs somewhere else, set `API_TARGET`
-(for example, `API_TARGET=http://192.168.1.20:8000 npm run dev`).
+The proxy only exists in `npm run dev` and `npm run preview`. If the site is
+ever deployed as static files, it will need its own proxy, or the API will
+need to allow CORS.
 
 ## Layout
 

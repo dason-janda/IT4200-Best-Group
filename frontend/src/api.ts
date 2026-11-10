@@ -1,6 +1,6 @@
 // Thin client for the IT4200 Fall 2026 class API (2026-IT4200-Fall/app.py).
-// In dev, Vite proxies /api/* to the Flask server (see vite.config.ts), which
-// sidesteps CORS since app.py doesn't send CORS headers.
+// Vite proxies /api/* to the hosted API (see vite.config.ts), which sidesteps
+// CORS since app.py doesn't send CORS headers.
 
 export type RouletteColor = 'red' | 'black' | 'green'
 
@@ -38,13 +38,14 @@ async function getJson<T>(path: string, params?: Record<string, string>): Promis
   try {
     res = await fetch(`${API_BASE}${path}${query}`)
   } catch {
-    throw new Error('Could not reach the API. Is the Flask server running on port 8000?')
+    throw new Error('Could not reach the API. Check your connection and try again.')
   }
 
   const body = await res.json().catch(() => null)
   if (!res.ok || body === null) {
     throw new Error(
-      body?.error ?? `API request failed (${res.status}). Is the Flask server running on port 8000?`,
+      body?.error ??
+        `API request failed (${res.status}). The hosted API may be waking up; try again in a minute.`,
     )
   }
   return body as T
