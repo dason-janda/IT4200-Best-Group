@@ -7,7 +7,7 @@ import { BalanceProvider } from './balance/BalanceProvider'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <BalanceProvider>
         <App />
       </BalanceProvider>

@@ -42,4 +42,14 @@ cd IT4200-Best-Group/frontend
 API_TARGET=http://localhost:8000 npm run dev
 ```
 
+## Deployment
+
+Every push to `main` builds the frontend and publishes it to GitHub Pages at
+https://dason-janda.github.io/IT4200-Best-Group/ (see
+[.github/workflows/deploy-pages.yml](.github/workflows/deploy-pages.yml)). You
+can also run it by hand from the repo's **Actions** tab.
+
+The deployed site calls the API directly from the browser, so the API has to
+allow cross-origin (CORS) requests.
+
 See [frontend/README.md](frontend/README.md) for how the games work and how to add a new one.

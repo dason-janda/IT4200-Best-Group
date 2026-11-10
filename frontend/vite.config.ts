@@ -10,6 +10,8 @@ const apiTarget = process.env.API_TARGET ?? 'https://two026-it4200-fall.onrender
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  // GitHub Pages serves the site from /<repo-name>/; the deploy workflow sets this.
+  base: process.env.BASE_PATH ?? '/',
   server: {
     proxy: {
       '/api': {
