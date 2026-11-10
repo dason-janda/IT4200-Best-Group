@@ -2,6 +2,8 @@
 
 ## Running the app
 
+Latest frontend from main hosted on github pages at https://dason-janda.github.io/IT4200-Best-Group/
+
 The frontend uses the class API hosted at
 https://two026-it4200-fall.onrender.com, so you don't need to run the backend
 yourself.
